@@ -40,6 +40,7 @@ public class TodoController {
         TodoItem existingItem = todoRepo.findById(id).orElseThrow(() -> new RuntimeException("Todo not found"));
         existingItem.setTitle(todoItem.getTitle());
         existingItem.setDone(todoItem.isDone());
+        existingItem.setDuedate(todoItem.getDuedate());
         return todoRepo.save(existingItem);
     }
     
